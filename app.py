@@ -1,12 +1,16 @@
-from flask import Flask
+from flask import Flask, render_tenplate, request, redirect, session
+import sqlite3
 
 app = Flask(__name__)
 
+def connect_db():
+    return sqlite3.connect("database.db"
+
+
+
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def home():  # put application's code here
+    return redirect("/")
 
 
-if __name__ == '__main__':
-    app.run()
