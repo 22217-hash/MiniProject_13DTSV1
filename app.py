@@ -14,3 +14,5 @@ def home():  # put application's code here
     return redirect("/")
 
 
+# sign up - input info into the database
+# log in - checks if login data is in the database.
