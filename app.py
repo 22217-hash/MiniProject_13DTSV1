@@ -29,6 +29,12 @@ def render_signup_page():   # put application's code here
         if int(password) < 8:
             return redirect("\signup?error=password+must+be+over+8+characters")
 
+        con = connect_db(DATABASE)
+        query = "SELECT name, description, volume, image, price FROM products WHERE  fk_cad_id=?"
+        query_insert = "INSERT INTO user (fname, lname, email, password) VALUES (?, ?, ?, ?)"
+        query_cat_list = "SELECT * FROM categories"
+        cur = con.cursor()
+        cur.execute(query, (cat_id))
     return render_template("signup.html")
 @app.route('/login', methods=['POST','GET'])
 def render_login_page():  # put application's code here
